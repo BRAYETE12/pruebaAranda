@@ -4,6 +4,7 @@ using ApiWeb.Services;
 using Application.Common.Interfaces;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 
@@ -11,8 +12,7 @@ namespace Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApiWeb(this IServiceCollection services,
-            IConfiguration configuration)
+        public static IServiceCollection AddApiWeb(this IServiceCollection services)
         {
             services.AddEndpointsApiExplorer();
 
@@ -58,15 +58,12 @@ namespace Application
             services.Configure<ApiBehaviorOptions>(options =>
                 options.SuppressModelStateInvalidFilter = true);
 
-            var origenes = configuration["Origins:Routes"].ToString().Split(",");
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowAnyOrigin()
-                .AllowCredentials()
-                .WithOrigins(origenes));
+                    .AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader());
             });
 
             //Services

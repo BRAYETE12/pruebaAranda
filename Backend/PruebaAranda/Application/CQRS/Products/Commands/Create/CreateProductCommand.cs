@@ -39,7 +39,7 @@ namespace Application.CQRS.Products.Commands.Create
             };
 
             if (request.Img != null && request.Img.Length > 0)
-                product.img = await _fileService.Save(request.Img, "Imagenes");
+                product.img = await _fileService.Save(request.Img, "Archivos/Imagenes");
 
             await _repository.AddAsync(product);
             await _repository.SaveChangesAsync();

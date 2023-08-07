@@ -20,23 +20,23 @@ namespace ApiWeb.Controllers
         }
 
         [HttpGet]
-        public Task<ResponseDto> Get([FromQuery] GetProductsQuery query)
-                => _mediator.Send(query);
+        public async Task<ResponseDto> Get([FromQuery] GetProductsQuery query)
+                => await _mediator.Send(query);
 
-        [HttpGet("{Id}")]
-        public Task<ResponseDto> Get([FromRoute] GetProductQuery query)
-                => _mediator.Send(query);
+        [HttpGet("{ProductId}")]
+        public async Task<ResponseDto> Get([FromRoute] GetProductQuery query)
+                => await _mediator.Send(query);
 
         [HttpPost]
-        public Task<ResponseDto> Post([FromBody] CreateProductCommand command)
-                => _mediator.Send(command);
+        public async Task<ResponseDto> Post([FromForm] CreateProductCommand command)
+                => await _mediator.Send(command);
 
         [HttpPut]
-        public Task<ResponseDto> Put([FromBody] UpdateProductCommand command)
-                => _mediator.Send(command);
+        public async Task<ResponseDto> Put([FromForm] UpdateProductCommand command)
+                => await _mediator.Send(command);
 
         [HttpDelete("{Id}")]
-        public Task<ResponseDto> Delete([FromRoute] DeleteProductCommand query)
-                => _mediator.Send(query);
+        public async Task<ResponseDto> Delete([FromRoute] DeleteProductCommand query)
+                => await _mediator.Send(query);
     }
 }

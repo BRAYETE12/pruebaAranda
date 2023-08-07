@@ -17,8 +17,8 @@ namespace ApiWeb.Controllers
         }
 
         [HttpGet("Category")]
-        public Task<ResponseDto> Categorys([FromRoute] GetCategoryQuery query)
-                => _mediator.Send(query);
+        public async Task<ResponseDto> Categorys([FromRoute] GetCategoryQuery query)
+                => await _mediator.Send(query);
 
     }
 }

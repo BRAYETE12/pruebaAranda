@@ -1,5 +1,6 @@
 using Application;
 using Infrastructure;
+using Microsoft.Extensions.FileProviders;
 using Serilog;
 using Serilog.Events;
 
@@ -14,7 +15,7 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 // Add services to the container.
-builder.Services.AddApiWeb(builder.Configuration);
+builder.Services.AddApiWeb();
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);
 
@@ -35,12 +36,18 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+                Path.Combine(builder.Environment.ContentRootPath, "Archivos/Imagenes")),
+    RequestPath = "/Archivos/Imagenes"
+});
+
 try
 {
     Log.Information("Iniciando Web API");
     Log.Information("Corriendo en:");
-    Log.Information("https://localhost:7113");
-    Log.Information("http://localhost:5144");
+    Log.Information("https://localhost");
     app.Run();
 }
 catch (Exception ex)

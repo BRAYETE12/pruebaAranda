@@ -8,7 +8,7 @@ namespace Domain.Models
         public string Name { get; set; } = default!;
         public string Description { get; set; } = default!;
         public int CategoryId { get; set; }
-        public string img { get; set; } = default!;
+        public string? img { get; set; } = default!;
 
         public Category Category { get; set; }
     }
