@@ -5,7 +5,7 @@ namespace Application.Common.Services
     public class FileService
     {
 
-        public async Task<string> Save(IFormFile file, string folder) 
+        public async Task<string> Save(IFormFile file, string folder)
         {
             var fileName = $"{Guid.NewGuid()}.{Path.GetExtension(file.FileName)}";
             var filePath = Path.Combine(folder, fileName);

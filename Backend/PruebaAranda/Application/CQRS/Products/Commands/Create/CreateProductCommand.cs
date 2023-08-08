@@ -20,7 +20,7 @@ namespace Application.CQRS.Products.Commands.Create
         private readonly IRepository<Product> _repository;
         private readonly FileService _fileService;
 
-        public CreateProductCommandHandler(IRepository<Product> repository, 
+        public CreateProductCommandHandler(IRepository<Product> repository,
             FileService fileService)
         {
             _repository = repository;

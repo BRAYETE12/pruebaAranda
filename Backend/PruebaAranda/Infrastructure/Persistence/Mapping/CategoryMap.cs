@@ -1,5 +1,4 @@
-﻿using Domain.Models;
-using Domain.Models.TablasReferencia;
+﻿using Domain.Models.TablasReferencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,7 +16,8 @@ namespace Infrastructure.Persistence.Mapping
 
             var Categories =
                 Enumerable.Range(1, 4)
-                .Select(s => new Category {
+                .Select(s => new Category
+                {
                     Id = s,
                     Name = $"Category {s}",
                     UserCreate = "-",

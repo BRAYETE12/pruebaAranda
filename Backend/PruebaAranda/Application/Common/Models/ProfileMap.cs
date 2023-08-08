@@ -2,7 +2,6 @@
 using AutoMapper;
 using Domain.Models;
 using Domain.Models.TablasReferencia;
-using System;
 
 namespace Application.Common.Models
 {

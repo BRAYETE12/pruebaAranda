@@ -5,8 +5,6 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Domain.Models;
 using MediatR;
-using Microsoft.AspNetCore.Mvc.Filters;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Application.CQRS.Products.Queries
 {
@@ -48,13 +46,13 @@ namespace Application.CQRS.Products.Queries
             if (!string.IsNullOrEmpty(request.SortDirName))
                 products = products.OrderBy($"Name {request.SortDirName}");
 
-            if (!string.IsNullOrEmpty(request.Description))
+            if (!string.IsNullOrEmpty(request.SortDirCategory))
                 products = products.OrderBy($"CategoryId {request.SortDirCategory}");
 
             var response = products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
                     .GetPagedResultAsync(request.PageSize, request.CurrentPage);
 
-            return await Task.FromResult( new ResponseDto(true, response.Result) );
+            return await Task.FromResult(new ResponseDto(true, response.Result));
 
         }
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.CQRS.ReferenceTable.Queries
 {
-    public class GetCategoryQuery : IRequest<ResponseDto>{}
+    public class GetCategoryQuery : IRequest<ResponseDto> { }
 
     public class GetCategorysQueryHandler : IRequestHandler<GetCategoryQuery, ResponseDto>
     {

@@ -4,7 +4,6 @@ using ApiWeb.Services;
 using Application.Common.Interfaces;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 
