@@ -5,7 +5,6 @@ import { getProductos, deleteProducto, getCategorias } from '../../../actions/Pr
 import Pagination from 'react-bootstrap/Pagination';
 import Container from 'react-bootstrap/Container';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
@@ -148,8 +147,8 @@ export const ProductoPage = () => {
             <Form.Group className="mb-3">
               <Form.Label>Orden por nombre</Form.Label>
               <div key="inline-radio" className="mb-3">
-                <Form.Check inline type="radio" id="rb1" label="Asc" name='OrderName' onChange={onInputChange} value="DESC" />
-                <Form.Check inline type="radio" id="rb2" label="Desc" name='OrderName' onChange={onInputChange} value="ASC" />
+                <Form.Check inline type="radio" id="rb1" label="Asc" name='SortDirName' onChange={onInputChange} value="ASC" />
+                <Form.Check inline type="radio" id="rb2" label="Desc" name='SortDirName' onChange={onInputChange} value="DESC" />
               </div>
             </Form.Group>   
           </Col>
@@ -157,8 +156,8 @@ export const ProductoPage = () => {
             <Form.Group className="mb-3">
               <Form.Label>Orden por categoría</Form.Label>
               <div key="inline-radio" className="mb-3">
-                <Form.Check inline type="radio" id="rb3" label="Asc" name='OrderCategory' onChange={onInputChange} value="DESC" />
-                <Form.Check inline type="radio" id="rb4" label="Desc" name='OrderCategory' onChange={onInputChange} value="ASC" />
+                <Form.Check inline type="radio" id="rb3" label="Asc" name='SortDirCategory' onChange={onInputChange} value="ASC" />
+                <Form.Check inline type="radio" id="rb4" label="Desc" name='SortDirCategory' onChange={onInputChange} value="DESC" />
               </div>
             </Form.Group>  
           </Col>
